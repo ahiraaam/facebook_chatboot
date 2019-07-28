@@ -1,3 +1,4 @@
+/*Solo se revisa si solo es del tiempo de entrega */
 const actions = require("./actions");
 
 exports.handleMessages = (webhookEvent) =>{
@@ -11,8 +12,7 @@ exports.handleMessages = (webhookEvent) =>{
             actions.stores(webhookEvent);
         }
         else if(message.text){
-            actions.sendTextMessage("Has enviado texto",webhookEvent);
-            console.log('Envio un texto');
+            handleNLP(webhookEvent)
         }
     }
     if(webhookEvent.postback){
@@ -72,4 +72,19 @@ handleLocation =(webhookEvent)=>{
         ]
     }
     actions.quickReplies(webhookEvent,replyLocation)
+}
+
+//PARA INTELOGENCIA ARTIFICIAL
+
+handleNLP = (webhookEvent) =>{
+    let nlp = webhookEvent.message.nlp
+    //verifica si hay una entidad entrenada
+    if(nlp.entities.mensaje){
+        //si es relacionado a entrega, ya sea que tenga pauqete, tiempo,etc, segun se haya entrenado
+        if(nlp.entities.mensaje[0].value=="tiempo_entrega"){
+            actions.sendTextMessage("Nuestro tiempo de entrega es de 5 dias hàbiles", webhookEvent)
+        }
+    }else{
+            actions.sendTextMessage("No te entiendo, pero puedo ayudarte a encontrar sucursales", webhookEvent)
+    }
 }
