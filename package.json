@@ -1,0 +1,25 @@
+{
+  "name": "facebook_chatboot",
+  "version": "1.0.0",
+  "description": "Build a chatboot",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahiraaam/facebook_chatboot.git"
+  },
+  "author": "Ahiram Cruz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahiraaam/facebook_chatboot/issues"
+  },
+  "homepage": "https://github.com/ahiraaam/facebook_chatboot#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  }
+}
