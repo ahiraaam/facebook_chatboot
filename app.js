@@ -45,3 +45,9 @@ app.get('/webhook',(req,res)=>{
 app.get('/', (req,res)=>{
     res.send('Holaaaaa');
 })
+
+app.get("/webview",(req,res)=>{
+    const user = req.body.user;
+    console.log(`Datos de usuario ${user}`);
+    res.status(200).send("Envio correctamente")
+})

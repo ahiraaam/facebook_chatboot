@@ -114,3 +114,36 @@ exports.stores =(webhookEvent) =>{
     }
     sendAPI.callSendAPI(response);
 }
+
+exports.webView = (webhookEvent) =>{
+    let response = {
+        recipient:{
+            id: webhookEvent.sender.id
+        },
+        message:{
+            attachment:{
+                type:"template",
+                payload:{
+                    template_type:"generic",
+                    elements:[{
+                        title:"Comparte tu usuario",
+                        image_url:"https://media.glassdoor.com/l/59/fc/27/13/arm-booth-staff-and-engineers-at-the-grace-hopper-conference.jpg",
+                        subtitle:"Comparte tu usuario",
+                        default_action:{
+                            type:"web_url",
+                            url:"http://plincos.com/vistachat.html",
+                        },
+                        buttons:[
+                            {
+                                type:"web_url",
+                                url:"http://plincos.com/vistachat.html",
+                                title:"Abrir formulario"
+                            }
+                        ]
+                    }]
+                }
+            }
+        }
+    }
+    sendAPI.callSendAPI(response);
+}

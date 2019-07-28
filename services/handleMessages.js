@@ -27,7 +27,8 @@ handlePostback = (webhookEvent) =>{
             actions.quickReplies(webhookEvent)
         break;
         case 'sucursales':
-            handleLocation(webhookEvent);
+            actions.webView(webhookEvent);
+            //handleLocation(webhookEvent);
         break;
         case 'inicio':
             actions.sendTextMessage("Bienvenido al chatbot", webhookEvent)
